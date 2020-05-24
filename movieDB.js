@@ -22,5 +22,7 @@ movies[3] = prompt('How yould you rate it?');
 console.log(movies);
 console.log(personalMovieDB);
 
+//comments
+
 
 
