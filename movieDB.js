@@ -1,5 +1,5 @@
-let numberOfFilms = +prompt ('How many films heve you seen yet?', '');
-// console.log(numberOfFilms);
+let numberOfFilms = prompt ('How many films heve you seen yet?', '');
+console.log(numberOfFilms);
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -15,3 +15,5 @@ for (i = 0; i < 2; i++) {
 
     personalMovieDB.movies[a] = b;
 };
+
+console.log(personalMovieDB);
