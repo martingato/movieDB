@@ -1,30 +1,83 @@
 // "use strict";
-let numberOfFilms = +prompt ('How many films heve you seen yet?', '');
-console.log(numberOfFilms);
+
+let numberOfFilms;
+
+function start() {
+  numberOfFilms = +prompt ('How many films heve you seen yet?', '');
+
+  while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+    numberOfFilms = +prompt ('How many films heve you seen yet?', '');
+  }
+}
+
+start();
 
 const personalMovieDB = {
     count: numberOfFilms,
     movies: {},
     actors: {},
     genres: [],
-    privat: false
+    private: false
 };
 
-do {
-    i = 0; i < 2; i++;
+function rememberMyFilms(){
+  for (let i = 0; i < 2; i++) {
     const a = prompt('Last film that you have seen?', ''),
           b = prompt('How yould you rate it from 0 to 5?', '');
+  
+    if (a != null && a != '' && b != '' && a.length < 50) {
+      personalMovieDB.movies[a] = b;
+      console.log('done');
+    } else {
+      console.log('error');
+      i--;
+    }
+  }
+}
+
+rememberMyFilms();
+
+function detectPersonalLevel() {
+  if (personalMovieDB.count < 10) {
+    console.log('You have seen not quite many films');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+    console.log('You are expirienced viewer')
+} else if (personalMovieDB.count >= 30) {
+    alert('You are movie buff');
+} else {
+    console.log('Error');
+}
+}
+
+detectPersonalLevel();
+
+function showMyDB(hidden) {
+  if (!hidden) {
+    console.log(personalMovieDB);
+  }
+}
+
+showMyDB(personalMovieDB.private);
+
+
+
+
+
+// do {
+//     i = 0; i < 2; i++;
+//     const a = prompt('Last film that you have seen?', ''),
+//           b = prompt('How yould you rate it from 0 to 5?', '');
 
 // if  {
 //   personalMovieDB.movies[a] = b;
 //   console.log('done');
 
-} while (a != null && b != null & a != '' && b != '' && a.length < 10);
+// } while (a != null && b != null & a != '' && b != '' && a.length < 10);
 
-else {
-  alert('Please, answer the questions =)');
-  i--;
-}
+// else {
+//   alert('Please, answer the questions =)');
+//   i--;
+// }
 
 // for (i = 0; i < 2; i++) {
 //     const a = prompt('Last film that you have seen?', ''),
@@ -47,12 +100,7 @@ else {
 //     alert('You are movie man');
 // };
 
-console.log(personalMovieDB);
-
-
-
-
-
+// console.log(personalMovieDB);
 
 
     // if (a === "") {
