@@ -52,11 +52,19 @@ const personalMovieDB = {
     },
     writeYourGenres: function() {
       for (let i = 1; i <= 3; i++) {
-        // const genre = prompt(`You favourite genre ${i}`);
-        // personalMovieDB.genres[i - 1] = genre;
-         
-        personalMovieDB.genres[i - 1] = prompt(`You favourite genre ${i}`);
+        let genre = prompt(`You favourite genre ${i}`);
+        
+        if (genre === '' || genre === null) {
+          console.log('You have putted invalid data');
+          i--;
+        } else {
+          personalMovieDB.genres[i - 1] = genre;
+        }    
       }
+      personalMovieDB.genres.forEach((item, i) => {
+        // console.log(`Your favourite genre #(number according the order, starting from 1) - this is a (name of arrow)`)
+        console.log(`Your favourite genre ${i + 1} - this is a ${item}`)
+      });
     }
 };
 
