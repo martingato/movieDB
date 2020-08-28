@@ -51,15 +51,24 @@ const personalMovieDB = {
       }
     },
     writeYourGenres: function() {
-      for (let i = 1; i <= 3; i++) {
-        let genre = prompt(`You favourite genre ${i}`);
+      for (let i = 1; i < 2; i++) {
+        // for (let i = 1; i <= 3; i++) {
+        // let genre = prompt(`You favourite genre ${i}`);
         
-        if (genre === '' || genre === null) {
-          console.log('You have putted invalid data');
-          i--;
-        } else {
-          personalMovieDB.genres[i - 1] = genre;
-        }    
+        // if (genre === '' || genre === null) {
+        //   console.log('You have putted invalid data');
+        //   i--;
+        // } else {
+        //   personalMovieDB.genres[i - 1] = genre;
+        // }}
+        let genres = prompt(`Please put you favourite genres through the comma`).toLowerCase();
+        if (genres === '' || genres === null) {
+            console.log('You have putted invalid data');
+            i--;
+          } else {
+            personalMovieDB.genres = genres.split(', ');
+            personalMovieDB.genres.sort();
+          }
       }
       personalMovieDB.genres.forEach((item, i) => {
         // console.log(`Your favourite genre #(number according the order, starting from 1) - this is a (name of arrow)`)
