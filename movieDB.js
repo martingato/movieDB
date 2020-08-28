@@ -43,6 +43,13 @@ const personalMovieDB = {
         console.log(personalMovieDB);
       }
     },
+    toggleVisibleMyDB: function() {
+      if (personalMovieDB.private) {
+        personalMovieDB.private = false;
+      } else {
+        personalMovieDB.private = true;        
+      }
+    },
     writeYourGenres: function() {
       for (let i = 1; i <= 3; i++) {
         // const genre = prompt(`You favourite genre ${i}`);
